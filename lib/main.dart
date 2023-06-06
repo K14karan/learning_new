@@ -13,6 +13,8 @@ import 'package:demo/utils/view/registration_page_screen.dart';
 import 'package:provider/provider.dart';
 import 'ImageEdit.dart';
 import 'about_us.dart';
+import 'color_change.dart';
+import 'counter_discount.dart';
 import 'login.dart';
 void main() async {
   try{
@@ -40,7 +42,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: const VerticalTabbarScreen(),
+        home:   ColorChane(),
         debugShowCheckedModeBanner: false,
       ),
     );

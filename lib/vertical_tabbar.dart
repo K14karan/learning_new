@@ -1,7 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'model/sub_category_data.dart';
 class VerticalTabbarScreen extends StatefulWidget {
   const VerticalTabbarScreen({Key? key}) : super(key: key);
-
   @override
   State<VerticalTabbarScreen> createState() => _VerticalTabbarScreenState();
 }
@@ -15,7 +16,8 @@ class _VerticalTabbarScreenState extends State<VerticalTabbarScreen> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.cyanAccent,
+        backgroundColor: Colors.cyanAccent.withOpacity(.1),
+        title:const Text("Category",style:TextStyle(color: Colors.black),),
       ),
       body:SafeArea(child: Row(
         children: [
@@ -56,10 +58,76 @@ class _VerticalTabbarScreenState extends State<VerticalTabbarScreen> {
           Expanded(child: PageView(
             controller: pageController,
             children: [
-             for(int i=0;i<pageCount;i++)
+             for(int i=0;i<pageCount;i++)  
               Container(
-                color: Colors.red,
-                child:Text("data ${i}"),
+                color:Colors.blueGrey,
+                child:GridView.builder(
+                    padding: const EdgeInsets.symmetric(horizontal: 5),
+                    gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                        maxCrossAxisExtent:180,
+                        childAspectRatio: 0.7,
+                        crossAxisSpacing:3,
+                        mainAxisSpacing: 0.2),
+                    itemCount:subCategoryData.length,
+                    itemBuilder: (BuildContext ctx, index) {
+                      return GestureDetector(
+                        onTap: () {
+                        },
+                        child: Container(
+                          margin: const EdgeInsets.only(top:1, bottom: 2),
+                          height: MediaQuery.of(context).size.height * .11,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                              color:Colors.white,
+                              borderRadius: BorderRadius.circular(0)),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                                Container(
+                                  padding: const EdgeInsets.only(top: 5),
+                                  child: Image.asset(
+                                    subCategoryData[index].image,
+                                    height: 80,
+                                    width:80,
+                                  ),
+                                )
+                              ]),
+                              Container(
+                                padding: const EdgeInsets.fromLTRB(2, 5, 2, 2),
+                                child:  Text(
+                                  subCategoryData[index].productName,
+                                ),
+                              ),
+                              Container(
+                                  padding: const EdgeInsets.fromLTRB(5, 0, 2, 2),
+                                  child: Row(
+                                    children: [
+                                      Text(subCategoryData[index].price, style: const TextStyle(
+                                          fontSize: 15,
+                                          color:Colors.white,
+                                          fontFamily: "Avalon_Bold",
+                                          fontWeight: FontWeight.bold),),
+                                      const SizedBox(width: 10,),
+                                      Text(subCategoryData[index].quantity,),
+                                    ],
+                                  )),
+                              Container(
+                                  padding: const EdgeInsets.fromLTRB(5, 5, 2, 2),
+                                  child: Row(
+                                    children: [
+                                      Text(subCategoryData[index].discount,
+                                      ),
+                                      const SizedBox(width: 15,),
+                                      Text(subCategoryData[index].off,
+                                         )
+                                    ],
+                                  )),
+                            ],
+                          ),
+                        ),
+                      );
+                    }),
               )
             ],
           ))
