@@ -1,6 +1,7 @@
 import 'package:demo/intro.dart';
 import 'package:demo/login_mobile.dart';
 import 'package:demo/privacy_policy.dart';
+import 'package:demo/search_item_textfield.dart';
 import 'package:demo/slider.dart';
 import 'package:demo/term_condition.dart';
 import 'package:demo/utils/image_page.dart';
@@ -13,8 +14,11 @@ import 'package:demo/utils/view/registration_page_screen.dart';
 import 'package:provider/provider.dart';
 import 'ImageEdit.dart';
 import 'about_us.dart';
+import 'chat_ui.dart';
 import 'color_change.dart';
 import 'counter_discount.dart';
+import 'dynamic_textfield/dynamic_textfield.dart';
+import 'instagram/instagram_profile.dart';
 import 'login.dart';
 void main() async {
   try{
@@ -42,7 +46,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home:   ColorChane(),
+        home:SearchFromListView(),
         debugShowCheckedModeBanner: false,
       ),
     );
