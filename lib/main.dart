@@ -1,25 +1,15 @@
-import 'package:demo/intro.dart';
-import 'package:demo/login_mobile.dart';
-import 'package:demo/privacy_policy.dart';
-import 'package:demo/search_item_textfield.dart';
-import 'package:demo/slider.dart';
-import 'package:demo/term_condition.dart';
-import 'package:demo/utils/image_page.dart';
+
 import 'package:demo/utils/provider/login_google.dart';
-import 'package:demo/vertical_tabbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:demo/utils/view/registration_page_screen.dart';
 import 'package:provider/provider.dart';
-import 'ImageEdit.dart';
-import 'about_us.dart';
-import 'chat_ui.dart';
-import 'color_change.dart';
-import 'counter_discount.dart';
-import 'dynamic_textfield/dynamic_textfield.dart';
+import 'animation_login/animation_login.dart';
+import 'animation_login/navigation_page.dart';
+import 'bike9pro/bike_list.dart';
 import 'instagram/instagram_profile.dart';
-import 'login.dart';
+
+
 void main() async {
   try{
     WidgetsFlutterBinding.ensureInitialized();
@@ -29,7 +19,9 @@ void main() async {
         messagingSenderId: '256132864092',
         projectId: 'fir-f5f3e'),
     );
-  }catch(e){}
+  }catch(e){
+
+  }
   runApp(const MyApp());
 }
 
@@ -46,7 +38,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home:SearchFromListView(),
+        home:  const BikeList(),
         debugShowCheckedModeBanner: false,
       ),
     );

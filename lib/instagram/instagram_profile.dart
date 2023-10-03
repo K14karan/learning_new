@@ -59,6 +59,9 @@ class _ProfileInstaPageState extends State<ProfileInstaPage> {
                     width: 80,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
+                      image: const DecorationImage(
+                          image: AssetImage("assets/image4.jpg")
+                      ),
                       color:Colors.grey[400]
                     ),
                   ),
@@ -92,7 +95,7 @@ class _ProfileInstaPageState extends State<ProfileInstaPage> {
             const Text("http:rehanshaikh.in.com",textAlign: TextAlign.center,style: TextStyle(color: Colors.blue,fontWeight: FontWeight.w600),),
             const SizedBox(height: 10,),
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 15),
+              margin: const EdgeInsets.symmetric(horizontal: 15),
               child: Row(
                children: [
                  Expanded(child: Container(

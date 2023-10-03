@@ -13,20 +13,20 @@ appRoutes() => [
   GetPage(
     name: '/second',
     page: () => const ColorChane(),
-    middlewares: [MyMiddelware()],
+    middlewares: [MyMidlelWare()],
     transition: Transition.leftToRightWithFade,
     transitionDuration: const Duration(milliseconds: 500),
   ),
   GetPage(
     name: '/third',
     page: () => MyHomePage(),
-    middlewares: [MyMiddelware()],
+    middlewares: [MyMidlelWare()],
     transition: Transition.leftToRightWithFade,
     transitionDuration: const Duration(milliseconds: 500),
   ),
 ];
 
-class MyMiddelware extends GetMiddleware {
+class MyMidlelWare extends GetMiddleware {
   @override
   GetPage? onPageCalled(GetPage? page) {
     print(page?.name);
